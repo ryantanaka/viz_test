@@ -71,13 +71,11 @@ app.post("/run", function(req, res) {
         var find = '</span>';
         var re = new RegExp(find, 'g');
     
-        console.log(__dirname);
-
         //res.send(ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find));
         res.json({
             "simulation_output": ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find),
             "num_compute_hosts": num_compute_hosts,
-            "task_data": JSON.parse(fs.readFileSync("/home/wrench/wrench-pedagogic-modules/activity_1_getting_started/workflow_data.json"))
+            "task_data": JSON.parse(fs.readFileSync("/home/wrench/workflow_data.json"))
         });
     });
 
