@@ -70,6 +70,8 @@ app.post("/run", function(req, res) {
 
         var find = '</span>';
         var re = new RegExp(find, 'g');
+    
+        console.log(__dirname);
 
         //res.send(ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find));
         res.json({
