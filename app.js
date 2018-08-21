@@ -25,7 +25,7 @@ app.post("/run", function(req, res) {
     var path_prefix = '/home/wrench/wrench-pedagogic-modules/' +
         'activity_1_getting_started/';
 
-    var wrench = path_prefix + 'activity_simulator' + res.simulator_number;
+    var wrench = path_prefix + 'activity_simulator' + req.body.simulator_number;
     var platform_file = path_prefix + 'platform_files/platform.xml';
     var workflow_file = path_prefix + 'workflow_files/workflow.dax';
     //var num_compute_hosts = 1;
