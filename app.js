@@ -28,12 +28,13 @@ app.post("/run", function(req, res) {
     var wrench = path_prefix + 'activity_simulator' + req.body.simulator_number;
     var platform_file = path_prefix + 'platform_files/platform.xml';
     var workflow_file = path_prefix + 'workflow_files/workflow.dax';
-    //var num_compute_hosts = 1;
+
     var logging = [
         '--log=root.thresh:critical',
         '--log=wms.thresh:debug',
         '--log=simple_wms.thresh:debug',
-        '--log=simple_wms_scheduler.thresh:debug'
+        '--log=simple_wms_scheduler.thresh:debug',
+        '--log="root.fmt:[%d][%h:%t]%e%m%n"'
     ];
 
     var cmd = [
