@@ -1,0 +1,13 @@
+#chart {
+    width: 600px;
+    height: 400px;
+    background-color: white;
+}
+
+.x-axis path .x-axis line {
+    shape-rendering: crispEdges;
+}
+
+.x-axis text {
+    font-family: sans-serif;
+}
