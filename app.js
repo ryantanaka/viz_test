@@ -40,7 +40,6 @@ app.post("/run", function(req, res) {
         wrench,
         platform_file,
         workflow_file,
-        num_compute_hosts,
         logging.join(' '),
     ].join(' ');
 
@@ -73,7 +72,7 @@ app.post("/run", function(req, res) {
         //res.send(ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find));
         res.json({
             "simulation_output": ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find),
-            "num_compute_hosts": num_compute_hosts,
+            "simulator_number": res.simulator_number,
             "task_data": JSON.parse(fs.readFileSync("/home/wrench/workflow_data.json"))
         });
     });
