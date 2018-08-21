@@ -54,7 +54,6 @@ app.post("/run", function(req, res) {
     //   res.send(data);
     //});
 
-    console.log("num compute hosts: " + num_compute_hosts);
     console.log("Executing cmd: " + cmd);
 
     exec(cmd, function(err, stdout, stderr) {
