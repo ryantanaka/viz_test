@@ -25,10 +25,9 @@ app.post("/run", function(req, res) {
     var path_prefix = '/home/wrench/wrench-pedagogic-modules/' +
         'activity_1_getting_started/';
 
-    var wrench = path_prefix + 'activity_simulator';
+    var wrench = path_prefix + 'activity_simulator' + res.simulator_number;
     var platform_file = path_prefix + 'platform_files/platform.xml';
     var workflow_file = path_prefix + 'workflow_files/workflow.dax';
-    var num_compute_hosts = req.body.num_compute_hosts;
     //var num_compute_hosts = 1;
     var logging = [
         '--log=root.thresh:critical',
@@ -70,7 +69,7 @@ app.post("/run", function(req, res) {
 
         var find = '</span>';
         var re = new RegExp(find, 'g');
-    
+
         //res.send(ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find));
         res.json({
             "simulation_output": ansi_up.ansi_to_html(stderr).replace(re, '<br>' + find),

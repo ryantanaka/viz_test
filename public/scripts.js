@@ -4,7 +4,7 @@ $(function() {
     $('#send-params').on('submit', function(event) {
         event.preventDefault();
 
-        var num_compute_hosts_input = $('#num-compute-hosts-input');
+        var simulator_number = $('#simulator-number');
         var simulation_output = $('#simulation-output');
         var chart = $('#chart').empty();
         simulation_output.empty();
@@ -13,10 +13,9 @@ $(function() {
             url: '/run',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({num_compute_hosts: num_compute_hosts_input.val()}),
+            data: JSON.stringify({simulator_number: simulator_number.val()}),
             success: function(response) {
-                console.log(response); // our response is a plain string but it has the html
-                num_compute_hosts_input.val('');
+                simulator_number.val('');
                 simulation_output.append(response.simulation_output);
 
                 parse_data(response.task_data);
