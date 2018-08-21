@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
 });
 
 app.post("/run", function(req, res) {
-    var path_prefix = '/Users/ryan/WRENCH-PROJECTS/wrench-pedagogic-modules/' +
+    var path_prefix = '/home/wrench/wrench-pedagogic-modules/' +
         'activity_1_getting_started/';
 
     var wrench = path_prefix + 'activity_simulator';
