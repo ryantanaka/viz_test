@@ -25,7 +25,10 @@ app.post("/run", function(req, res) {
     var path_prefix = '/home/wrench/wrench-pedagogic-modules/' +
         'activity_1_getting_started/';
 
-    var wrench = path_prefix + 'activity_simulator' + req.body.simulator_number;
+    var simulator_local_storage = "simulator_local_storage";
+    var simulator_remote_storage = "simulator_remote_storage";
+
+    var simulator = path_prefix + (req.body.simulator_number == 1 ? simulator_remote_storage : simulator_local_storage); 
     var platform_file = path_prefix + 'platform_files/platform.xml';
     var workflow_file = path_prefix + 'workflow_files/workflow.dax';
 
@@ -38,7 +41,7 @@ app.post("/run", function(req, res) {
     ];
 
     var cmd = [
-        wrench,
+        simulator,
         platform_file,
         workflow_file,
         logging.join(' '),
